@@ -1,4 +1,7 @@
 # Podcast reviews with iTunes metadata
+
+TLDR: Examplary Airflow EtLT pipeline for OLAP with PostgreSQL in Docker as target database for local development.
+
 This project demonstrates an EtLT pipeline using `Airflow`, `Docker` and `PostgreSQL` for enriching the existing [Kaggle Podcast Reviews dataset](https://www.kaggle.com/thoughtvector/podcastreviews) with additional metadata, requested from the iTunes API. The pipeline is built with modularity in mind, e.g. for moving the pipeline to AWS `Amazon Managed Workflows for Apache Airflow`, `Redshift` and `S3`.
 
 ## Data sources

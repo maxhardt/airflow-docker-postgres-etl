@@ -1,0 +1,28 @@
+# data
+data/kaggle/*
+data/tables/*
+data/itunes/*
+!data/kaggle/.gitkeep
+!data/tables/.gitkeep
+!data/itunes/.gitkeep
+
+# airflow
+airflow/*
+airflow/.gitkeep
+
+# ide
+.vscode*
+
+# secrets
+.env
+kaggle.json
+
+# notebooks
+notebooks*
+*ipynb
+
+# misc
+submission*
+
+# py
+*__pycache__

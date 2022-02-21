@@ -76,7 +76,7 @@ with DAG(
     download_kaggle = BashOperator(
         task_id="download_kaggle",
         bash_command="""
-        echo 'conda run -n {} kaggle datasets download {} --path {} --unzip'
+        conda run -n {} kaggle datasets download {} --path {} --unzip
         """.format(
             os.environ["CONDA_ENV_NAME"],
             os.environ["KAGGLE_DATASET"],

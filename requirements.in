@@ -1,0 +1,10 @@
+apache-airflow
+apache-airflow-providers-postgres
+requests
+aiohttp
+asyncio
+psycopg
+kaggle
+psycopg2
+python-dotenv
+pandas

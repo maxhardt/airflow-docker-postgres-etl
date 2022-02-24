@@ -7,7 +7,7 @@ This project demonstrates an EtLT pipeline using `Airflow`, `Docker` and `Postgr
 ## Data sources
 
 The repository uses the following two data sources:
-- The [Kaggle Podcast Reviews dataset](https://www.kaggle.com/thoughtvector/podcastreviews) containing ~ 1.3M reviews for ~500k podcasts.
+- The [Kaggle Podcast Reviews dataset](https://www.kaggle.com/thoughtvector/podcastreviews) containing ~ 1.3M reviews for ~50k podcasts.
 - The [iTunes Lookup API](https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/iTuneSearchAPI/index.html) for retrieving additional podcasts metadata (such as explicitness).
 
 ## Data pipeline

@@ -9,11 +9,12 @@ from airflow.operators.python import PythonOperator
 from airflow.providers.postgres.operators.postgres import PostgresOperator
 
 from dotenv import load_dotenv
+
+# airflow adds the ./plugins directory to PATH
 from extract_ids import extract_podcast_ids
 from extract_itunes import extract_itunes_metadata
 from extract_tables import extract_sqlite_table
 from operators import IngestPostgresDockerOperator
-
 
 # set env vars
 load_dotenv(".env")
@@ -173,7 +174,7 @@ with DAG(
     cleanup >> [create_database,  download_kaggle]
     create_database >> create_tables
 
-    # transforn, extract
+    # extract
     download_kaggle >> extract_tables_tasks
     download_kaggle >> extract_podcasts
     extract_podcasts >> extract_itunes_metadata

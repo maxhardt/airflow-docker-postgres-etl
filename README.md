@@ -135,3 +135,7 @@ The pipeline is built in Airflow, which means specifying a schedule is already c
 
 3. The database needs to be accessed by 100+ people.
 Since the expected use is OLAP, `Redshift` should be able to handle concurrent read access well enough without sacrificing too much on query performance and latency.
+
+# References
+
+Axelbrooke, Stuart: Podcast Reviews Dataset, version 10. Kaggle https://www.kaggle.com/thoughtvector/podcastreviews/version/10. (2020)

@@ -115,7 +115,7 @@ The project is currently built to run on `Airflow standalone` with `PostgreSQL` 
 
 ### Bottlenecks
 
-The major bottleneck step in the pipeline is the `extract_itunes_metadata` task, which runs REST API calls for all distinct podcast ids (~ 50k in the original Kaggle dataset) and serializes the results to JSON files. The current implementation handles this single-threaded andasynchronously, but with unnecessary amount of file I/O and a lot of room for higher level of concurrency.
+The major bottleneck step in the pipeline is the `extract_itunes_metadata` task, which runs REST API calls for all distinct podcast ids (~ 50k in the original Kaggle dataset) and serializes the results to JSON files. The current implementation is single-threaded with room for more concurrency/less file I/O.
 
 One possible approach to overcome this is by using `Spark`, which may run these REST API calls concurrently in many threads across multiple workers and cores. More specifically, [one approach](https://medium.com/geekculture/how-to-execute-a-rest-api-call-on-apache-spark-the-right-way-in-python-4367f2740e78) is to define a `Python UDF` that handles the API call along with a `withColumn` statement to build a single dataframe containing all responses. The results may be written directly to a single `NDJSON` file on a remote storate to be bulk-ingestd to the final database. Going even further, the file may be sharded (or partitioned in the case of Spark) for more efficient ingest process. Alternative frameworks such as `Dask` for implementing a similar logic may also be considered.
 `PostgreSQL` is able to handle all bulk ingests within seconds and returns single-join aggregate queries in sub-second ranges on a single machine.

@@ -55,7 +55,7 @@ Dimension **d_podcasts**:
 - country varchar
 - release_date timestamp
 
-## Example analyis
+## Example analysis
 
 The pipeline enriches the original [dataset](#data-sources) with additional podcasts metadata, such as explicitness, number of tracks and release date. Accordingly, analysis may be performed based on this metadata. An examplary question might be: *What is the average rating by advisory rating?*
 
